@@ -9,7 +9,9 @@ Imagine that you could start or stop everything with a NFC tag in Home Assistant
 For the NFC scanner I designed a circuit board (PCB) and a 3D printed case.
 
 - In the `case` folder you will find the required STL files.
-- In the `pcb` folder you can find the Gerber files. Many people let their boards made by [Seeedstudio](https://www.seeedstudio.com/fusion_pcb.html) in Shenzhen :cn:.
+- In the `pcb` folder you can find the Gerber files. Many people let their boards made by [Seeedstudio](https://www.seeedstudio.com/fusion_pcb.html) in Shenzhen.
+
+If you have suggestions or questions, open an **issue** or contribute via a **PR**!
 
 ### Schematic
 
@@ -28,6 +30,9 @@ Requirements:
 | GND        | GND                |
 
 ## How to setup
+
+- You need Arduino IDE to configure some files, and use the serial monitor (other IDE's are okey).
+- You need the `PN532`, `PubSubClient`, `SPI` and `ESP8266WiFi` library.
 
 Further down this page you will find all information about which adjustments you have to make.
 
@@ -52,11 +57,11 @@ NFCTag NFCTags[NUM_ACCEPTED_UIDS] = {
 
 Now you can find your `UID` value in different ways, such as via your phone through certain apps from the app / play store. But to make it easy for yourself, it is possible to read only the UID tags / cards, via the same .ino script.
 
-You start this mode by setting `onlyReadUID` to true, in the **`ha_nfc_scanner.ino`** file.
+You start this mode by setting `readUIDMode` to true, in the **`ha_nfc_scanner.ino`** file.
 
 ```C++
 // False wil start de main function, True will start the UID read script so you can find out wich UID's your NFC tags have on the serial monitor.
-bool onlyReadUID = true;
+bool readUIDMode = true;
 ```
 
 This way the MQTT and WIFI are switched off and you can read your UID values using the serial monitor.
