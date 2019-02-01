@@ -29,7 +29,7 @@ Requirements:
 
 ## How to setup
 
-Further down this page you will find all information about which adjustments you have to make to make the NFC scanner work.
+Further down this page you will find all information about which adjustments you have to make.
 
 ### NFC Tags
 
@@ -47,6 +47,8 @@ NFCTag NFCTags[NUM_ACCEPTED_UIDS] = {
 // Location of the NFC scanner
 #define LOCATION "living_room"
 ```
+
+#### Finding the UIDs
 
 Now you can find your `UID` value in different ways, such as via your phone through certain apps from the app / play store. But to make it easy for yourself, it is possible to read only the UID tags / cards, via the same .ino script.
 
