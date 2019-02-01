@@ -1,0 +1,1 @@
+# ha_nfc_scanner
