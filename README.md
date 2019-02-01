@@ -1,6 +1,6 @@
 # NFC Scanner :mag: for Home Assistant :house:
 
-<img src="img/header.jpg" width="90%" style="display:block;margin-left:30px;margin-right:auto;">
+<img src="img/header.jpg" width="100%" style="display:block;margin-left:30px;margin-right:auto;">
 
 ## About
 
