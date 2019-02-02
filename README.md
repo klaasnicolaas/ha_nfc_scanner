@@ -4,7 +4,7 @@
 
 ## About
 
-Imagine that you could start or stop everything with a NFC tag in Home Assistant :smile: Every time you hold an NFC tag against the scanner (and the UID of it is included in the list), there will be an MQTT message to you go broker and eventually to Home Assistant. With a LED you also get physical feedback, that the scanner has actually recognized your Tag.
+Imagine that you could start or stop everything with a NFC tag in Home Assistant :smile: Every time you hold an NFC tag against the scanner (and the UID of it is included in the list), there will be send an MQTT message to your broker and eventually to Home Assistant. With a LED you also get physical feedback, that the scanner has actually recognized your Tag.
 
 For the NFC scanner I designed a circuit board (PCB) and a 3D printed case.
 
@@ -38,7 +38,7 @@ Further down this page you will find all information about which adjustments you
 
 ### NFC Tags
 
-At `NUM_ACCEPTED_UIDS` you indicate how many NFC tags / cards you will use. Then enter the `UID` values of your NFC tags / cards and give each tag / card its own name. If you are going to make multiple nfc scanners, you can indicate in which room the scanner is present with the `LOCATION` variable.
+At `NUM_ACCEPTED_UIDS` you indicate how many NFC tags/cards you will use. Then enter the `UID` values of your NFC tags/cards and give each tag/card its own name. If you are going to make multiple nfc scanners, you can indicate in which room the scanner is present with the `LOCATION` variable.
 
 ```C++
 #define NUM_ACCEPTED_UIDS 2 //<-----------------CHANGE THIS IF ADDING CARDS!!
@@ -55,7 +55,7 @@ NFCTag NFCTags[NUM_ACCEPTED_UIDS] = {
 
 #### Finding the UIDs
 
-Now you can find your `UID` value in different ways, such as via your phone through certain apps from the app / play store. But to make it easy for yourself, it is possible to read only the UID tags / cards, via the same .ino script.
+You can find your `UID` value in different ways, such as via your phone through certain apps from the app / play store. But to make it easy for yourself, it is possible to read only the UID tags / cards, via the same .ino script.
 
 You start this mode by setting `readUIDMode` to true, in the **`ha_nfc_scanner.ino`** file.
 
