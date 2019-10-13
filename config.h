@@ -18,9 +18,13 @@ NFCTag NFCTags[NUM_ACCEPTED_UIDS] = {
 // Debug output
 #define DEBUG_SERIAL
 
+// OTAupdate
+#define OTA_HOSTNAME      ""
+#define OTA_PASSWORD      ""
+
 // Wi-Fi credentials
-#define WIFI_SSID     ""
-#define WIFI_PASSWORD ""
+#define WIFI_SSID         ""
+#define WIFI_PASSWORD     ""
 
 // MQTT
 #define MQTT_USERNAME     ""

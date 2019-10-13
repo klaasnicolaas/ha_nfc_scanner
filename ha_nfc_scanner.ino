@@ -6,6 +6,9 @@
     - PN532:        https://github.com/Seeed-Studio/PN532
 
   Release Notes:
+  Klaas S. - V1.2 - 10.2019
+  - Add OTA update feature
+
   Klaas S. - V1.1 - 02.2019
   - By means of an LED you can now see if the ESP recognizes an NFC tag.
   - Fix use of 7 bytes nfc tags.
@@ -26,6 +29,7 @@ typedef struct {
 
 #include "config.h"
 #include <ESP8266WiFi.h>
+#include <ArduinoOTA.h>
 #include <SPI.h>
 #include <PN532_SPI.h>
 #include "PN532.h"        // https://github.com/Seeed-Studio/PN532
@@ -159,6 +163,51 @@ void setupWiFi() {
 
   randomSeed(micros());
 }
+
+///////////////////////////////////////////////////////////////////////////
+//   Arduino OTA
+///////////////////////////////////////////////////////////////////////////
+void setupOTA() {  
+  // Hostname defaults to esp8266-[ChipID]
+  ArduinoOTA.setHostname(OTA_HOSTNAME);
+
+  // No authentication by default
+  ArduinoOTA.setPassword(OTA_PASSWORD);
+  
+  ArduinoOTA.onStart([]() {
+    String type;
+    if (ArduinoOTA.getCommand() == U_FLASH)
+      type = "sketch";
+    else // U_SPIFFS
+      type = "filesystem";
+
+    // NOTE: if updating SPIFFS this would be the place to unmount SPIFFS using SPIFFS.end()
+    Serial.println("Start updating " + type);
+  });
+  
+  ArduinoOTA.onEnd([]() {
+    Serial.println("\nEnd");
+  });
+  
+  ArduinoOTA.onProgress([](unsigned int progress, unsigned int total) {
+    Serial.printf("Progress: %u%%\r", (progress / (total / 100)));
+  });
+  
+  ArduinoOTA.onError([](ota_error_t error) {
+    Serial.printf("Error[%u]: ", error);
+    if (error == OTA_AUTH_ERROR) Serial.println("Auth Failed");
+    else if (error == OTA_BEGIN_ERROR) Serial.println("Begin Failed");
+    else if (error == OTA_CONNECT_ERROR) Serial.println("Connect Failed");
+    else if (error == OTA_RECEIVE_ERROR) Serial.println("Receive Failed");
+    else if (error == OTA_END_ERROR) Serial.println("End Failed");
+  });
+  
+  ArduinoOTA.begin();
+  Serial.println("Ready");
+  Serial.print("IP address: ");
+  Serial.println(WiFi.localIP());
+}
+
 ///////////////////////////////////////////////////////////////////////////
 //   MQTT
 ///////////////////////////////////////////////////////////////////////////
@@ -213,6 +262,7 @@ void setup() {
 #endif
 
   pinMode(ledPin, OUTPUT);
+  setupOTA();
 
   if (readUIDMode == false) {
     setupWiFi();
@@ -252,6 +302,7 @@ void setup() {
 }
 
 void loop() {
+  ArduinoOTA.handle();
 
   yield();
 
@@ -278,4 +329,3 @@ void loop() {
   
   yield();
 }
-

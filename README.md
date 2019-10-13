@@ -4,12 +4,13 @@
 
 ## About
 
-Imagine that you could start or stop everything with a NFC tag in Home Assistant :smile: Every time you hold an NFC tag against the scanner (and the UID of it is included in the list), there will be send an MQTT message to your broker and eventually to Home Assistant. With a LED you also get physical feedback, that the scanner has actually recognized your Tag.
+Imagine that you could start or stop everything with a NFC tag in Home Assistant :smile: Every time you hold an NFC tag against the scanner (and the UID of it is included in the list), there will be send an MQTT message to your broker and eventually to Home Assistant. With a LED you also get physical feedback, that the scanner has actually recognized your Tag. Recently I have added the feature to use Over The Air(OTA) updates, with password protection.
 
 For the NFC scanner I designed a circuit board (PCB) and a 3D printed case.
 
 - In the `case` folder you will find the required STL files.
 - In the `pcb` folder you can find the Gerber files. Many people let their boards made by [Seeedstudio](https://www.seeedstudio.com/fusion_pcb.html) in Shenzhen.
+- In the `img` folder some pictures of the project.
 
 If you have suggestions or questions, open an **issue** or contribute via a **PR**!
 
@@ -68,12 +69,16 @@ This way the MQTT and WIFI are switched off and you can read your UID values usi
 
 ### Credentials
 
-Enter the details of your Wi-Fi network and login details of your MQTT client account and the IP address of the MQTT broker.
+Enter the details of your Wi-Fi network and login details of your MQTT client account and the IP address of the MQTT broker. Also provide a hostname and password for the Over The Air(OTA) feature.
 
 ```c++
+// OTAupdate
+#define OTA_HOSTNAME      ""
+#define OTA_PASSWORD      ""
+
 // Wi-Fi credentials
-#define WIFI_SSID     ""
-#define WIFI_PASSWORD ""
+#define WIFI_SSID         ""
+#define WIFI_PASSWORD     ""
 
 // MQTT
 #define MQTT_USERNAME     ""
@@ -106,6 +111,14 @@ binary_sensor:
 Do you live in the Netherlands and you want a PCB? Contact me I have number of PCB's.
 
 <img src="img/PCB-Frontside.png" width="50%"><img src="img/pcb.jpg" width="50%">
+
+## Troubleshooting
+
+If you get an error, create then an **issue** so that I can sort things out for you. Below the solution for errors that I have encountered.
+
+### Not Enough Space
+
+If you get the error message `[ERROR]: Bad Answer: ERR: ERROR[4]: Not Enough Space`, change in the Arduino IDE the *Flash Size* to `4M (1M SPIFFS)`.
 
 ## Credits
 
