@@ -18,8 +18,8 @@ If you have suggestions or questions, open an **issue** or contribute via a **PR
 
 Requirements:
 
-- PN532 NFC RFID (Elechouse module v3)
-- ESP8266 (NodeMCU v1.0)
+- PN532 NFC RFID (Elechouse module v3) - [Banggood][pn532-bg-shop] or [AliExpress][pn532-ali-shop]
+- ESP8266 (NodeMCU v1.0) - [Banggood][esp8266-bg-shop] or [AliExpress][esp8266-ali-shop]
 
 | NFC reader | NodeMCU / ESP8266  |
 |------------|--------------------|
@@ -124,4 +124,38 @@ If you get the error message `[ERROR]: Bad Answer: ERR: ERROR[4]: Not Enough Spa
 
 A big :star: for [mertenats](https://github.com/mertenats/Open-Home-Automation), the script of this repo is based on his.
 
+## Disclamer
+
+We use aliexpress / banggood affiliate links for the components and the tools. Some Ad-blockers might block these links an thus they seem to appear broken. You will have to temporarely disable ad-blocker to open these links.
+
+## License
+
+MIT License
+
+Copyright (c) 2019-2022 Klaas Schoute
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 [scanner-stack]: /img/nfc-scanner-stack.jpg
+
+<!-- Hardware -->
+[esp8266-bg-shop]: https://www.banggood.com/bang/?tt=16956_12_417111_&r=%2FGeekcreit-NodeMcu-Lua-ESP8266-ESP-12F-WIFI-Development-Board-p-985891.html
+[esp8266-ali-shop]: https://tc.tradetracker.net/?c=15640&m=12&a=417111&r=&u=%2Fitem%2F4000160133215.html
+[pn532-bg-shop]: https://www.banggood.com/bang/?tt=16956_12_417111_&r=https%3A%2F%2Fbanggood.com%2FPN532-NFC-Precise-RFID-IC-Card-Reader-Module-13_56MHz-3_3V-p-1636479.html
+[pn532-ali-shop]: https://tc.tradetracker.net/?c=15640&m=12&a=417111&r=&u=%2Fitem%2F1005001561633575.html
